@@ -1,10 +1,10 @@
 :root {
     /* Background colors */
     --color-bg: #000;
-    
-    --background: url(../img/backgrounds/main-bg-black.png);
-
-    --background2: url(../img/backgrounds/main-bg-black.png);
+    --background-img: url("../img/backgrounds/main-bg-black.png") no-repeat left center fixed;
+    --bg-size: 80%;
+    --blend-mode: normal;
+    --brightness: brightness(50%);
 
     /* Text colors */
     --color-text: #fff;
@@ -21,6 +21,8 @@
     --fifth-color: #3F3F3F;
     --sixth-color: #5F5F5F;
     --border-color: #1f1f1f;
+
+    --sixth-text-color: #5F5F5F;
 
     /* Icon colors */
     --icon-color: #fff;
@@ -78,4 +80,8 @@
     --popup-color-red-complete: rgba(255, 41, 41, 1);
     --popup-color-blue-complete: rgba(94, 129, 255, 1);
     --popup-color-green-complete: rgba(61, 255, 67, 1);
+
+    /* Messanger */
+    --message-bg: #1f1f1f88;
+    --blue-bubble: #4761c0;
 }

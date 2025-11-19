@@ -14,6 +14,8 @@
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
 }
 
 .settings_menu hr {
@@ -139,6 +141,7 @@ svg path, svg path g {
     color: var(--button-text);
     font-family: var(--main-font);
     transition: background-color 0.5s;
+
 }
 
 .main-navbar {
@@ -476,10 +479,6 @@ select:hover {
     right: 10px;
 }
 
-* {
-    transition: background 0.7s ease, background-color 0.7s ease, fill 0.2s ease, color 0.7s ease, border 0.7s ease;
-}
-
 .settings-menu {
   display: none;
   justify-content: center;
@@ -542,7 +541,6 @@ select:hover {
     align-items: center;
     flex-direction: column;
     overflow: hidden;
-    border: 1px solid red
 }
 
 footer {
@@ -769,7 +767,7 @@ nav {
 
 .profile-dropdown-menu {
     padding: 5px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: url(#glass-distortion);
     top: 12px;
     right: -30px;
     z-index: 2000;
@@ -812,7 +810,7 @@ nav {
   border-radius: 15px; /* твоє заокруглення */
   padding: 1rem;
   background: color-mix(in srgb, var(--secondary-color) 50%, transparent) border-box;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   z-index: 1000000000000000000000;
 }
 
@@ -864,3 +862,4 @@ nav {
     margin-right: 35px;
   }
 }
+

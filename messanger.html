@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="./src/css/base.css">
     <link rel="stylesheet" href="./src/css/fonts.css">
-    <link rel="stylesheet" href="./src/css/logged-homepage.css">
+    <link rel="stylesheet" href="./src/css/messanger.css">
 
     <link id="themeChanger" rel="stylesheet" href="./src/css/dark-theme.css">
 
@@ -17,32 +17,7 @@
     <link rel="shortcut icon" href="./src/svgs/basic/favicon.svg" type="image/svg">
 </head>
 
-
-
-
 <body>
-    <svg color-interpolation-filters="sRGB" style="display:none">
-        <defs>
-            <filter id="thumb-filter-slider">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blurred_source"></feGaussianBlur>
-                <feImage href="./src/assets/displacement-map-76hifn.png" x="0" y="0" width="90" height="60"
-                    result="displacement_map"></feImage>
-                <feDisplacementMap in="blurred_source" in2="displacement_map" scale="75" xChannelSelector="R"
-                    yChannelSelector="G" result="displaced"></feDisplacementMap>
-                <feColorMatrix in="displaced" type="saturate" result="displaced_saturated" values="50"></feColorMatrix>
-                <feImage href="./src/assets/specular-map-76hifn.png" x="0" y="0" width="90" height="60"
-                    result="specular_layer"></feImage>
-                <feComposite in="displaced_saturated" in2="specular_layer" operator="in" result="specular_saturated">
-                </feComposite>
-                <feComponentTransfer in="specular_layer" result="specular_faded">
-                    <feFuncA type="linear" slope="0.4"></feFuncA>
-                </feComponentTransfer>
-                <feBlend in="specular_saturated" in2="displaced" mode="normal" result="withSaturation"></feBlend>
-                <feBlend in="specular_faded" in2="withSaturation" mode="normal"></feBlend>
-            </filter>
-        </defs>
-    </svg>
-
     <div class="fixed-navbar">
         <nav class="main-navbar">
             <div class="main-nav-content">
@@ -366,159 +341,33 @@
             </div>
         </div>
     </div>
-    <div class="liquid-bubble">
-    </div>
-    <div class="homepage-menu dropdown-basis">
 
-        <div class="hmenu-item selected">
-            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M0.59708 6.69615C1.19209e-07 7.78697 0 9.10281 0 11.7345V13.4838C0 17.9697 1.19209e-07 20.2127 1.34731 21.6063C2.69462 23 4.86307 23 9.2 23H13.8C18.1369 23 20.3054 23 21.6527 21.6063C23 20.2127 23 17.9697 23 13.4838V11.7345C23 9.10281 23 7.78697 22.4029 6.69615C21.8058 5.60534 20.7151 4.92834 18.5334 3.57434L16.2334 2.1469C13.9272 0.715633 12.7741 0 11.5 0C10.2259 0 9.0728 0.715633 6.76663 2.1469L4.46663 3.57435C2.28499 4.92834 1.19416 5.60534 0.59708 6.69615ZM8.05 17.5375C7.57366 17.5375 7.1875 17.9237 7.1875 18.4C7.1875 18.8763 7.57366 19.2625 8.05 19.2625H14.95C15.4263 19.2625 15.8125 18.8763 15.8125 18.4C15.8125 17.9237 15.4263 17.5375 14.95 17.5375H8.05Z"
-                    fill="var(--primary-color)" />
-            </svg>
-        </div>
-
-        <div class="hmenu-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
-                <path opacity="0.4"
-                    d="M19.975 10.9875V15.9875C19.975 16.3125 19.9625 16.625 19.925 16.925C19.6375 20.3 17.65 21.975 13.9875 21.975H13.4875C13.175 21.975 12.875 22.125 12.6875 22.375L11.1875 24.375C10.525 25.2625 9.45 25.2625 8.7875 24.375L7.28749 22.375C7.12499 22.1625 6.7625 21.975 6.4875 21.975H5.98751C2.00001 21.975 0 20.9875 0 15.9875V10.9875C0 7.32501 1.68751 5.33751 5.05001 5.05001C5.35001 5.01251 5.66251 5 5.98751 5H13.9875C17.975 5 19.975 7.00001 19.975 10.9875Z"
-                    fill="#727272" />
-                <path
-                    d="M9.98828 15C9.28828 15 8.73828 14.4375 8.73828 13.75C8.73828 13.0625 9.30078 12.5 9.98828 12.5C10.6757 12.5 11.2382 13.0625 11.2382 13.75C11.2382 14.4375 10.6882 15 9.98828 15Z"
-                    fill="#727272" />
-                <path
-                    d="M14.3633 15C13.6633 15 13.1133 14.4375 13.1133 13.75C13.1133 13.0625 13.6758 12.5 14.3633 12.5C15.0508 12.5 15.6133 13.0625 15.6133 13.75C15.6133 14.4375 15.0508 15 14.3633 15Z"
-                    fill="#727272" />
-                <path
-                    d="M5.625 15C4.925 15 4.375 14.4375 4.375 13.75C4.375 13.0625 4.9375 12.5 5.625 12.5C6.3125 12.5 6.875 13.0625 6.875 13.75C6.875 14.4375 6.3125 15 5.625 15Z"
-                    fill="#727272" />
-                <path
-                    d="M24.9739 5.98751V10.9875C24.9739 14.6625 23.2864 16.6375 19.9239 16.925C19.9614 16.625 19.9739 16.3125 19.9739 15.9875V10.9875C19.9739 7.00001 17.9739 5 13.9864 5H5.98633C5.66133 5 5.34883 5.01251 5.04883 5.05001C5.33633 1.68751 7.32383 0 10.9864 0H18.9864C22.9739 0 24.9739 2.00001 24.9739 5.98751Z"
-                    fill="#727272" />
-            </svg>
-
-        </div>
-        <div class="hmenu-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M9.0625 3.4375C9.0625 1.53903 10.6015 0 12.5 0C14.3985 0 15.9375 1.53903 15.9375 3.4375C15.9375 5.33598 14.3985 6.875 12.5 6.875C10.6015 6.875 9.0625 5.33598 9.0625 3.4375Z"
-                    fill="#727272" />
-                <path
-                    d="M7.77886 12.9051L5.05974 11.9988C4.27758 11.738 3.75 11.006 3.75 10.1816C3.75 8.96212 4.87441 8.05312 6.06681 8.30864L8.43878 8.81692C8.57068 8.84518 8.63662 8.8593 8.70201 8.87283C11.2075 9.39108 13.7925 9.39108 16.298 8.87283C16.3634 8.8593 16.4294 8.84518 16.5612 8.81692L18.9331 8.30863C20.1256 8.05312 21.25 8.96212 21.25 10.1816C21.25 11.006 20.7224 11.738 19.9403 11.9988L17.2211 12.9051C16.8925 13.0146 16.7282 13.0694 16.6046 13.1458C16.1839 13.4054 15.9558 13.8888 16.0227 14.3788C16.0425 14.5226 16.1046 14.6843 16.229 15.0075L17.7875 19.0596C18.2514 20.2658 17.361 21.5621 16.0686 21.5621C15.4079 21.5621 14.7976 21.2081 14.4697 20.6343L12.5 17.1871L10.5303 20.6343C10.2024 21.2081 9.59216 21.5621 8.93132 21.5621C7.63897 21.5621 6.74861 20.2658 7.21254 19.0596L8.77102 15.0075C8.89536 14.6843 8.95754 14.5226 8.97721 14.3788C9.0442 13.8888 8.81609 13.4054 8.39531 13.1458C8.27176 13.0694 8.10746 13.0146 7.77886 12.9051Z"
-                    fill="#727272" />
-                <path
-                    d="M12.5 25.9372C19.4035 25.9372 25 23.4189 25 20.3122C25 18.16 22.3136 16.29 18.3675 15.3442L19.5375 18.3862C20.4737 20.8206 18.6769 23.437 16.0686 23.437C14.735 23.437 13.5035 22.7224 12.8419 21.5644L12.5 20.9661L12.1581 21.5644C11.4965 22.7224 10.265 23.437 8.93132 23.437C6.32314 23.437 4.52624 20.8206 5.46251 18.3862L6.63254 15.3442C2.68634 16.29 0 18.16 0 20.3122C0 23.4189 5.59644 25.9372 12.5 25.9372Z"
-                    fill="#727272" />
-            </svg>
-        </div>
-        <div class="hmenu-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="27" viewBox="0 0 22 27" fill="none">
-                <path
-                    d="M18.3327 15.9992C19.9895 15.9992 21.3327 17.3424 21.3327 18.9992V20.206C21.3327 21.6642 20.6961 23.0498 19.5897 23.9997C17.5024 25.7917 14.5153 26.6674 10.6619 26.6674C6.80928 26.6674 3.82419 25.792 1.74037 24.0004C0.63554 23.0505 0 21.666 0 20.209V18.9992C0 17.3424 1.34315 15.9992 3 15.9992H18.3327ZM10.5267 0.00912889L10.6624 0C11.1686 0 11.587 0.376205 11.6533 0.864306L11.6624 1L11.6613 1.99867L16.3286 1.99934C17.9855 1.99934 19.3286 3.34249 19.3286 4.99934V11.0055C19.3286 12.6623 17.9855 14.0055 16.3286 14.0055H4.99528C3.33842 14.0055 1.99528 12.6623 1.99528 11.0055V4.99934C1.99528 3.34249 3.33842 1.99934 4.99528 1.99934L9.66133 1.99867L9.66239 1C9.66239 0.493739 10.0386 0.0753455 10.5267 0.00912889ZM7.661 5.99934C6.74105 5.99934 5.99528 6.74511 5.99528 7.66506C5.99528 8.58501 6.74105 9.33078 7.661 9.33078C8.58095 9.33078 9.32672 8.58501 9.32672 7.66506C9.32672 6.74511 8.58095 5.99934 7.661 5.99934ZM13.6513 5.99934C12.7314 5.99934 11.9856 6.74511 11.9856 7.66506C11.9856 8.58501 12.7314 9.33078 13.6513 9.33078C14.5713 9.33078 15.317 8.58501 15.317 7.66506C15.317 6.74511 14.5713 5.99934 13.6513 5.99934Z"
-                    fill="#727272" />
-            </svg>
-        </div>
-
-
-
-    </div>
-
-    <div class="main-container">
-        <main>
-            <h2 class="gm-msg">Good Morning, User!</h2>
-            <div class="main-information">
-                <div class="mood-tracker">
-                    <p>Mood tracker</p>
-                    <div class="stats">
-                        <div class="scale-div">
-                            <div class="mon-scale"></div>
-                            <div class="tue-scale"></div>
-                            <div class="wed-scale"></div>
-                            <div class="thu-scale"></div>
-                            <div class="fri-scale"></div>
-                            <div class="sat-scale"></div>
-                            <div class="sun-scale"></div>
-                        </div>
-                        <hr class="stat-divider">
-                        <div class="stat-days">
-                            <div class="stat-day">MON</div>
-                            <div class="stat-day">TUE</div>
-                            <div class="stat-day">WED</div>
-                            <div class="stat-day">THU</div>
-                            <div class="stat-day">FRI</div>
-                            <div class="stat-day">SAT</div>
-                            <div class="stat-day">SUN</div>
-                        </div>
-                    </div>
-                    <div class="ai-review">
-                        <h5>AI Review</h5>
-                        <p>Your mood has become more stable through week 3 of your therapy and we can see that you had a
-                            better result then previous weeks. Keep going and you will reach your best result ever.</p>
-                    </div>
+    <div class="msg-container">
+        <div class="chats"></div>
+        <div class="chat-container">
+            <div class="writing-container dropdown-basis"></div>
+            <div class="user-info-container dropdown-basis"></div>
+            <div class="message-container">
+                <div class="message-bubble blue">Yeah. Just a moment</div>
+                <div class="message-bubble">Hey! Will u be today?</div>
+                <div class="date">16 November</div>
+                <div class="message-bubble">Nice job! I see your progress. You're coming to better "you". And I can see that your mood had become better.</div>
+                <div class="message-bubble blue">Here's my tests u wanted me to try</div>
+                <div class="img-msg blue">
+                    <div class="image-container"><img src="./src/img/backgrounds/afirmation&quotes/chilli-9202873_640_1x.jpg" alt=""></div>
+                    <div class="image-container"><img src="./src/img/backgrounds/afirmation&quotes/chilli-9202873_640_1x.jpg" alt=""></div>
                 </div>
-                <a href="/affirmations.html">
-                    <div class="afirms-x-quotes">
-                        <div href="/affirmations.html" class="item-frame">
-                            <img src="./src/img/backgrounds/afirmation&quotes/chilli-9202873_1280.jpg"
-                                alt="Image for afirmation" class="overlay-img">
-                            <p>Affirmations</p>
-                            <p class="main-txt">Everywhere I go, I attract love, peace and harmony.</p>
-                        </div>
-                </a>
-
-                <a href="/quotes.html">
-                    <div class="item-frame">
-                        <img src="./src/img/backgrounds/afirmation&quotes/sailboat-9597523_1280.jpg"
-                            alt="Image for quote" class="overlay-img">
-                        <p>Quotes</p>
-                        <p class="main-txt">You are your best thing</p>
-                        <p class="quote-author">-Toni Morrison</p>
-                    </div>
-                </a>
-
+                <div class="message-bubble blue">and also i did that u told me</div>
+                <div class="message-bubble blue">Wanted to tell u i'm fine</div>
+                <div class="message-bubble blue">Hi Ms Noah</div>
+                <div class="date">11 November</div>
+                <div class="message-bubble">thanks god everything's fine, maybe take a break for a moment</div>
             </div>
-
-            <div class="daily-article">
-                <div class="cropping-rect">
-                    <img src="./src/img/backgrounds/afirmation&quotes/tree-7619791_1280.jpg"
-                        alt="A picture of autumn tree" class="article-img">
-                </div>
-                <div class="article-title">Find your inner strenght</div>
-                <a href="#" class="article-author">Dr. Ryan<span class="verified">
-                        <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z"
-                                fill="var(--primary-color)" />
-                        </svg>
-                    </span></a>
-                <p class="article-description">Life throws many curveballs, and sometimes it feels like we're constantly
-                    battling uphill. But within each of us lies a powerful, resilient force: inner strength. It's not
-                    something you gain from an external source; it's already there, waiting to be discovered and
-                    nurtured. So, how do you tap into this incredible resource?
-
-                    First, practice self-awareness. Take time to understand your emotions, thoughts, and reactions. What
-                    are your triggers? What makes you feel weak, and what empowers you? Journaling, meditation, or
-                    simply quiet reflection can help you gain clarity. The more you understand yourself, the better
-                    equipped you'll be to navigate challenges.</p>
-            </div>
-            <div class="daily-test">
-                <img src="./src/img/backgrounds/afirmation&quotes/checked-bg.png" alt="" class="overlay-img">
-                <img src="./src/img/backgrounds/afirmation&quotes/Без назви-2.png" alt="" class="object-img">
-                <p>Daily Test:</p>
-                <p>ADHD Self-Check</p>
-                <a href="/test.html " class="btn">Take Test</a>
-            </div>
+        </div>
     </div>
-    </main>
-    </div>
-
 
     <script src="./src/js/colorblind-module.js"></script>
 
     <script src="./src/js/settings.js"></script>
     <script src="./src/js/navbar.js"></script>
-    <script src="./src/js/liquid-glass.js"></script>
 </body>
-
-</html>

@@ -1,7 +1,10 @@
 (() => {
   const menu = document.querySelector('.homepage-menu');
-  const bubble = document.querySelector('.homepage-menu .liquid-bubble');
+  const bubble = document.querySelector('.liquid-bubble');
   const SELECTED_ANCHOR = menu.querySelector('.hmenu-item.selected');
+  const menuRect = menu.getBoundingClientRect();
+  bubble.style.top = `${menuRect.top + menuRect.height / 2}px`;  // центрування по Y
+
   if (!menu || !bubble) return;
 
   const BASE_SCALE_X = 1;
@@ -82,31 +85,27 @@
     if (e.button !== 0) return;
 
     isHolding = true;
-    isReturning = false;
-    pointerId = e.pointerId ?? null;
+    pointerId = e.pointerId;
 
-    try { menu.setPointerCapture?.(e.pointerId); } catch (_) { }
+    // Центр по Y відносно меню
+    const menuRect = menu.getBoundingClientRect();
+    bubble.style.top = `${menuRect.top + menuRect.height / 2}px`;
 
-    menu.classList.add('holding');
-    menu.classList.remove('returning');
-    menu.classList.remove('bubble-resting');
-    bubble.classList.remove('resting');
+    // Початковий стан — бульку НЕ показуємо
+    engageTarget = 0;
+    alphaTarget = 0;
+    bubble.style.opacity = "0";
+    bubble.classList.remove('active');
 
-    engage = 0;
-    engageTarget = 1;
-    alpha = 0;
-    alphaTarget = ALPHA_HOLD;
-    bubble.style.opacity = alpha.toFixed(3);
     pointerSpeed = 0;
     lastPointerX = e.clientX;
     lastPointerTime = e.timeStamp ?? performance.now();
 
     computeSizes();
-    showBubble();
 
+    // Початкове позиціонування по X
     const rect = menu.getBoundingClientRect();
     const selected = SELECTED_ANCHOR || menu.querySelector('.hmenu-item.selected');
-    ;
     if (selected) {
       const sRect = selected.getBoundingClientRect();
       const centerX = (sRect.left + sRect.width / 2) - rect.left;
@@ -114,12 +113,26 @@
     } else {
       currentX = clamp(e.clientX - rect.left, bubbleRadiusX, rect.width - bubbleRadiusX);
     }
-
     setBubbleAtClientX(e.clientX);
     bubble.style.left = `${currentX}px`;
 
-    kick();
+    // ПОЯВА ТІЛЬКИ ПРИ УТРИМАННІ
+    setTimeout(() => {
+      if (!isHolding) return; // короткий тап → не показуємо
+
+      menu.classList.add('holding');
+
+      engageTarget = 1;
+      alphaTarget = ALPHA_HOLD;
+
+      showBubble();
+      kick();
+    }, 150);
+
+    try { menu.setPointerCapture?.(pointerId); } catch (_) { }
   }
+
+
 
   function moveWhileHold(e) {
     if (!isHolding) return;
@@ -348,6 +361,7 @@
     lastScaleY = scaleY;
 
     bubble.style.left = `${currentX}px`;
+    menu.style.setProperty('--glow-x', `${currentX}px`);
     bubble.style.opacity = Math.max(0, Math.min(1, alpha)).toFixed(3);
 
     const stillMoving = isHolding && pointerSpeed > 10;

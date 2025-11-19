@@ -1,13 +1,13 @@
 :root {
     /* Background colors */
     --color-bg: beige;
-    
-    --background: linear-gradient(atan(100vh / 100vw),
-            #587CFF 0%,
+    --background-img: linear-gradient(atan(100vh / 100vw),
+            #CC69D6 0%,
             #FFBE63 50%,
-            #BA4AFF 100%);
-
-    --background2: url(../img/backgrounds/main-bg-black.png);
+            #808CDA 100%) no-repeat left center fixed;
+    --bg-size: 100%;
+    --blend-mode: difference;
+    --brightness: brightness(90%);
 
     /* Text colors */
     --color-text: #000;
@@ -24,6 +24,8 @@
     --fifth-color: #f3f3f3;
     --sixth-color: #f5f5f5;
     --border-color: #999;
+
+    --sixth-text-color: #5F5F5F;
 
     /* Icon colors */
     --icon-color: #000;
